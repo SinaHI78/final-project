@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import AuthenticationContext from '../context/authentication';
-import { registerUser } from '../services/authentication';
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthenticationContext from "../context/authentication";
+import { registerUser } from "../services/authentication";
 
 const RegisterPage = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const { setUser } = useContext(AuthenticationContext);
@@ -15,7 +15,7 @@ const RegisterPage = () => {
     event.preventDefault();
     registerUser({ name, email, password }).then((data) => {
       setUser(data.user);
-      navigate('/');
+      navigate("/");
     });
   };
 
